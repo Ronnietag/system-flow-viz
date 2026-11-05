@@ -1,4 +1,6 @@
 # 设计树提问清单
+> 🇬🇧 **English readers**: this reference is the Chinese edition; the bilingual
+> `README.md` in the repository root summarises the same contract and rules.
 
 按轮次问。**每轮只问「前置决策已定」的那批**；每题给推荐答案，让用户回「是」即可。
 **别问「能不能做」**——那是你的活。**别问「事实是什么」**——事实是你的活，派子代理去查。

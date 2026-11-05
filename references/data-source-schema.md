@@ -1,4 +1,6 @@
 # 节点清单契约
+> 🇬🇧 **English readers**: this reference is the Chinese edition; the bilingual
+> `README.md` in the repository root summarises the same contract and rules.
 
 节点内容写成**结构化清单**（TS 常量或 JSON），**组件**从它渲染。
 **清单是唯一真源**，组件是产物。
