@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "<系统名> 系统流程可视化",
+    "platform": "<一句话：这是干什么的>",
+    "generated_at": "YYYY-MM-DD",
+    "measured_at": "YYYY-MM-DD",
+    "measured_note": "生产库只读连接实测；库文件 mtime YYYY-MM-DD HH:MM",
+    "db_path": "<库实体绝对路径；仓库里是否是软链接>",
+    "sources": [
+      "代码勘察：后端接口与存储层",
+      "代码勘察：计算内核与配置语义",
+      "代码勘察：前端与调用矩阵",
+      "代码勘察：文档地图与实测库",
+      "代码勘察：归档物"
+    ],
+    "evidence": {
+      "live_service": "<真实服务地址；跑了哪些端点>",
+      "smoke": "<冒烟跑了哪些段、几项通过；没跑的是为什么>",
+      "not_taken": [
+        "<没取到的项 + 原因>"
+      ]
+    }
+  },
+  "layers": [
+    {"id": "external", "name": "外部文件", "desc": "平台之外的权威数据源", "color": "var(--l-external)"},
+    {"id": "user", "name": "用户操作", "desc": "业务方或开发者触发平台行为", "color": "var(--l-user)"},
+    {"id": "frontend", "name": "前端界面", "desc": "页面与接口封装", "color": "var(--l-frontend)"},
+    {"id": "backend", "name": "后端服务", "desc": "端点与计算编排", "color": "var(--l-backend)"},
+    {"id": "storage", "name": "数据存储", "desc": "库表、配置文件与上传目录", "color": "var(--l-storage)"},
+    {"id": "archive", "name": "归档/一次性", "desc": "非现行运行路径：取证脚本与历史留痕", "color": "var(--l-archive)"}
+  ],
+  "nodes": [
+    {
+      "id": "example.step",
+      "title": "<这一步叫什么>",
+      "layer": "backend",
+      "summary": "<卡片上显示的一句话，≤40 字>",
+      "what": "<这一步做什么：业务语言，2–4 句>",
+      "trigger": "<触发方式：用户点哪个按钮 / 哪个端点被调 / 脚本哪一步>",
+      "src": [
+        {"file": "src/app/thing.py", "line": 120, "symbol": "do_thing", "note": "处理函数"}
+      ],
+      "tables": {
+        "read": [{"name": "<表名>", "fields": ["<字段名>"], "note": "<可选>"}],
+        "write": [
+          {
+            "name": "<表名>",
+            "keys": "<主键/唯一键>",
+            "semantics": "按单元全量替换",
+            "fields": ["<字段名>"]
+          }
+        ],
+        "keys": ["<这一环节用到的其它键>"],
+        "note": "<可选>"
+      },
+      "io": {
+        "in": "<输入是什么>",
+        "out": "<输出是什么>",
+        "scale": "<量级；实测数字必须带采集日期，如「1,234 行（实测 2026-01-01）」>"
+      },
+      "fail": [
+        "<失败条件 / 边界 / 已知坑，每条一句>"
+      ],
+      "docs": [{"path": "docs/x.md", "section": "§N.M", "note": "<可选>"}],
+      "conflicts": [
+        {
+          "topic": "<一句话标题>",
+          "doc_says": "<文档怎么说>",
+          "code_says": "<代码实际是什么>",
+          "evidence": "<file:line 对照>"
+        }
+      ],
+      "tags": ["<可选标签>"]
+    }
+  ],
+  "views": [
+    {
+      "id": "overview",
+      "name": "总览全景",
+      "desc": "一句话说明这个视图看什么",
+      "panels": [
+        {
+          "id": "main",
+          "kind": "flow",
+          "title": "主干流程",
+          "desc": "<可选>",
+          "nodes": ["example.step"],
+          "edges": [{"from": "example.step", "to": "example.step", "kind": "call", "label": "<可选>"}]
+        },
+        {
+          "id": "dict",
+          "kind": "table",
+          "title": "<字典表标题>",
+          "desc": "<可选>",
+          "columns": [{"key": "name", "label": "名称", "num": false}],
+          "rows": [{"name": "<值>"}]
+        },
+        {
+          "id": "tl",
+          "kind": "timeline",
+          "title": "<时间轴标题>",
+          "phases": [
+            {
+              "title": "<阶段名>",
+              "desc": "<阶段说明>",
+              "layer": "backend",
+              "items": [{"title": "<条目>", "note": "<可选>", "id": "example.step"}]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
