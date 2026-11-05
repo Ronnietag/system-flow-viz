@@ -1,6 +1,6 @@
 # 验收清单
-> 🇬🇧 **English readers**: this reference is the Chinese edition; the bilingual
-> `README.md` in the repository root summarises the same contract and rules.
+> 🇬🇧 **English readers**: this reference is the Chinese edition; see
+> [`../README.en.md`](../README.en.md) for the English overview.
 
 逐条打勾。任一条不过，交付就不算完成。
 

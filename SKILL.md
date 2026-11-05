@@ -2,13 +2,18 @@
 name: system-flow-viz
 description: |
   把一个系统的全部运行链路画成一页可交互的**流程图组件**（React/SVG）—— 分层流程图 + 点开钻取 + 悬停高亮，源码位置与实测数字都带采集日期。Use when the user wants to understand an unfamiliar codebase as a system ("把系统逻辑画出来", "平台有哪些功能", "数据存哪个库", "计算用了哪些字段", "生成流程图", "system flow diagram", "architecture visualization", "make the platform a black box disappear"). 也用于「以后每个项目都要有这份可视化」的通用化场景。
+metadata:
+  author: "RonnieBach"
+  homepage: "https://github.com/Ronnietag"
+  repository: "https://github.com/Ronnietag/system-flow-viz"
+  version: "1.0.0"
 ---
 
 # 系统流程可视化（React 组件路线）
 
-> 🇬🇧 **English readers**: this file is the Chinese edition. The repository's
-> `README.md` is **bilingual** (中文 / English) and covers what the skill does, what
-> the three probes do, and the hard rules. The steps below are the detailed method.
+> 🇬🇧 **English readers**: this file is the Chinese edition — see
+> [`README.en.md`](README.en.md) for the English overview, or
+> [`README.md`](README.md) for the Chinese one. The steps below are the detailed method.
 
 > 📦 **通用版在 GitHub**：`github.com/Ronnietag/system-flow-viz`（公开，MIT）
 > ⇒ 装法：`git clone https://github.com/Ronnietag/system-flow-viz.git ~/.config/opencode/skills/system-flow-viz`

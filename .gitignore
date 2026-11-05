@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 探针的输出（可重新生成）
+probe-*.md
+*.probe.md
+
+# 环境变量（本 skill 不需要任何密钥；这是给使用者的占位）
+.env
+.env.local

@@ -1,0 +1,37 @@
+{
+  "name": "system-flow-viz",
+  "version": "1.0.0",
+  "description": "把一个系统的全部运行链路画成一页可交互的流程图 —— 给 agent 用的 opencode skill（勘察 → 节点清单 → React 组件 → 三条守门缝 → 取证）",
+  "license": "MIT",
+  "author": "RonnieBach",
+  "homepage": "https://github.com/Ronnietag/system-flow-viz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronnietag/system-flow-viz.git"
+  },
+  "keywords": [
+    "agent-skill",
+    "opencode",
+    "claude-code",
+    "codebase-documentation",
+    "architecture-visualization",
+    "system-flow-diagram",
+    "react",
+    "svg"
+  ],
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.en.md",
+    "SECURITY.md",
+    "LICENSE",
+    "references",
+    "scripts/*.py",
+    "templates/*.tsx",
+    "templates/*.json",
+    "test-prompts.json"
+  ],
+  "scripts": {
+    "verify": "python3 templates/verify_refs.py --nodes <你的清单> --root ."
+  }
+}
