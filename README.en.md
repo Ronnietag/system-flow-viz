@@ -7,8 +7,11 @@
 > *"Type. Hit enter. A finished flow diagram lands in your lap."*
 > *「打字。回车。一份能点的流程图落到你手里。」*
 
+[![skills.sh](https://skills.sh/b/Ronnietag/system-flow-viz)](https://github.com/Ronnietag/system-flow-viz)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Agent-Agnostic](https://img.shields.io/badge/Agent-Agnostic-blueviolet)](https://skills.sh)
+
+<sub>Also listed on [skills.sh](https://skills.sh) — the leaderboard for agent skills (listing follows the telemetry delay)</sub>
 
 <br>
 
@@ -16,8 +19,9 @@
 
 <br>
 
-> The reader is usually **someone about to modify the system** — they need to answer
-> "if I change this, what else moves?"
+<img src="demos/01-high-level.png" width="100%" alt="High level: external input → ingest → calculate → seal/export">
+
+<br>
 
 Onboarding onto an undocumented system, the hard part is not "what does this function do"
 but **"where did this number come from" and "what does changing this move"**.
@@ -29,13 +33,61 @@ The method lays out every path as a diagram where each node carries its **source
 The diagram is **interactive**: hovering highlights the related edges, clicking drills down
 layer by layer, and hovering a name reveals its real identifier.
 
+<br>
+
+```bash
+npx skills add Ronnietag/system-flow-viz
+```
+
+<sub>Installs into opencode / Claude Code / Cursor / Codex / OpenClaw … (20+ agents) · or
+<a href="#install-it">git clone</a> into any skills directory</sub>
+
+<br>
+
+Installed, ask your agent *"draw the system flow"* or *"make the platform a black box
+disappear"* and it triggers.
+
+<br>
+
+[See it in action](#demos) · [Install it](#install-it) · [The three probes](#the-three-probes-project-agnostic) ·
+[Six hard rules](#the-six-hard-rules) · [Drawing rules](#drawing-rules) ·
+[Acceptance checklist](references/acceptance-checklist.md)
+
+---
+
+## Install it
+
+### Option 1 · one command (recommended)
+
+```bash
+npx skills add Ronnietag/system-flow-viz
+```
+
+Installs into **opencode / Claude Code / Cursor / Codex / Cline / OpenClaw / Amp …** (20+ agents)
+and registers the skill with the [skills.sh](https://skills.sh) directory — the leaderboard
+for agent skills.
+
+### Option 2 · git clone (any agent, any directory)
+
 ```bash
 git clone https://github.com/Ronnietag/system-flow-viz.git \
     ~/.config/opencode/skills/system-flow-viz
 ```
 
-Installed, ask your agent *"draw the system flow"* or *"make the platform a black box
-disappear"* and it triggers.
+⚠️ **Self-check after installing** (the probes need no configuration):
+
+```bash
+python3 ~/.config/opencode/skills/system-flow-viz/scripts/probe_endpoints.py \
+    --root /path/to/your/repo --glob "**/*.py" --out /tmp/ep.md
+```
+
+### How to trigger it
+
+| Say this | What happens |
+|---|---|
+| *"draw this platform's runtime paths"* | asks about audience/scope/interaction first, then surveys, then produces the interactive diagram |
+| *"which table does this page's number come from?"* | page → api wrapper → endpoint → table, each hop with `file:line` |
+| *"what does changing this affect?"* | locate the node on the diagram ⇒ list upstream/downstream nodes and their line numbers |
 
 ---
 

@@ -7,8 +7,11 @@
 > *「把黑盒系统，画成一张能点的图。」*
 > *"Turn a black-box system into a clickable diagram."*
 
+[![skills.sh](https://skills.sh/b/Ronnietag/system-flow-viz)](https://github.com/Ronnietag/system-flow-viz)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Agent-Agnostic](https://img.shields.io/badge/Agent-Agnostic-blueviolet)](https://skills.sh)
+
+<sub>也收录在 [skills.sh](https://skills.sh) —— agent skill 的专门榜单（收录随遥测延迟生效）</sub>
 
 <br>
 
@@ -16,7 +19,9 @@
 
 <br>
 
-> 目标读者是**要改造这个系统的人** —— 他们要能回答「改这一处会连带动到哪」。
+<img src="demos/01-high-level.png" width="100%" alt="平台全貌：外部输入 → 入库转换 → 计算 → 封存导出">
+
+<br>
 
 接手一个没文档的系统时，最难的不是「某个函数干什么」，而是
 **「这个数从哪来」「改这里会连带动到哪」**。
@@ -26,12 +31,23 @@
 
 图是**交互**的：悬停高亮相关连线，点开逐层钻取，鼠标停在名字上看实际英文名。
 
+<br>
+
 ```bash
-git clone https://github.com/Ronnietag/system-flow-viz.git \
-    ~/.config/opencode/skills/system-flow-viz
+npx skills add Ronnietag/system-flow-viz
 ```
 
+<sub>装到 opencode / Claude Code / Cursor / Codex / OpenClaw …（20+ 个 agent）· 也可
+<a href="#装上就能用">git clone</a> 到任意 skills 目录</sub>
+
+<br>
+
 装完在 opencode 里说「帮我把这个系统的运行链路画出来」就会触发。
+
+<br>
+
+[看效果](#示例--demos) · [装上就能用](#装上就能用) · [三个探针](#三个探针通用不依赖本项目) ·
+[六条红线](#六条红线) · [画法硬规则](#画法硬规则) · [验收清单](references/acceptance-checklist.md)
 
 ---
 
@@ -51,6 +67,41 @@ git clone https://github.com/Ronnietag/system-flow-viz.git \
 > ⚠️ 刻意**不放**第三张「取数明细」图：那张图列的是**具体项目的库表清单**
 > （数据模型）⇒ 公开仓库不该带；而它是**数据驱动**的（换个项目就是另一套），
 > 也不适合当通用示例。
+
+---
+
+## 装上就能用
+
+### 方式一 · 一条命令（推荐）
+
+```bash
+npx skills add Ronnietag/system-flow-viz
+```
+
+自动装到 **opencode / Claude Code / Cursor / Codex / Cline / OpenClaw / Amp …**（20+ 个 agent），
+并登记到 [skills.sh](https://skills.sh) 目录（agent skill 的专门榜单）。
+
+### 方式二 · git clone（任意 agent / 任意目录）
+
+```bash
+git clone https://github.com/Ronnietag/system-flow-viz.git \
+    ~/.config/opencode/skills/system-flow-viz
+```
+
+⚠️ 装完**先自检**（探针不需要任何配置）：
+
+```bash
+python3 ~/.config/opencode/skills/system-flow-viz/scripts/probe_endpoints.py \
+    --root /path/to/your/repo --glob "**/*.py" --out /tmp/ep.md
+```
+
+### 怎么触发
+
+| 说这句话 | 会发生什么 |
+|---|---|
+| 「把这个平台的运行链路画出来」| 先问清受众/范围/交互，再勘察，最后产出交互式流程图 |
+| 「这个页面的数是从哪张表来的？」| 页面 → api 封装 → 端点 → 库表，逐跳带 `file:line` |
+| 「改这一处会影响到哪些地方？」| 在图上定位 ⇒ 给出上下游节点与各自的行号 |
 
 ---
 
