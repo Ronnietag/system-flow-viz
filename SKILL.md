@@ -5,6 +5,11 @@ description: 把一个系统的全部运行链路画成一页可交互的**流�
 
 # 系统流程可视化（React 组件路线）
 
+> 📦 **通用版在 GitHub**：`github.com/Ronnietag/system-flow-viz`（公开，MIT）
+> ⇒ 装法：`git clone https://github.com/Ronnietag/system-flow-viz.git ~/.config/opencode/skills/system-flow-viz`
+> ⚠️ **本目录是同源副本**（本项目用它画自己的三张流程图）
+> ⇒ **改动要同步两边**：通用版改了 ⇒ `git pull` 更新本目录。
+
 把「系统是怎么跑起来的」变成**一页能点的流程图**。目标读者通常是
 **要改造这个系统的人** —— 他们要能回答「改这一处会连带动到哪」。
 
