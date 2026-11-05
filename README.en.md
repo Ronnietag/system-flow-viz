@@ -39,6 +39,28 @@ disappear"* and it triggers.
 
 ---
 
+## Demos
+
+Two diagrams produced by a real project (the **UI is Chinese**).
+
+<img src="demos/01-high-level.png" width="100%" alt="High level: external input → ingest → calculate → seal/export">
+
+**High level** — four stages, one main chain. Hovering a node highlights the related
+edges; clicking one opens the panel (what it does / which line of which file /
+which table, which field).
+
+<img src="demos/02-process-flow.png" width="100%" alt="Process flow: three swimlanes, ten steps">
+
+**Process flow** — the same drawing primitives arranged as **swimlanes**: who does what
+in which step, at a glance.
+
+> ⚠️ A third diagram is deliberately **not** included: the "data lineage" view lists a
+> specific project's **table inventory** (its data model) ⇒ out of place in a public
+> repository — and it is **data-driven** (a different project shows different tables),
+> so it makes a poor general example.
+
+---
+
 ## What's in the box
 
 ```
@@ -56,6 +78,7 @@ templates/
   nodes.template.json             node list, JSON flavour
   verify_refs.py                  reference verifier (non-zero exit = failure)
 test-prompts.json                 trigger regression set (prompt / expected / tests)
+demos/                           example diagrams (from a real project)
 ```
 
 ---

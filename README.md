@@ -35,6 +35,25 @@ git clone https://github.com/Ronnietag/system-flow-viz.git \
 
 ---
 
+## 示例 · Demos
+
+真实项目产出的两张图（**中文界面**）。
+
+<img src="demos/01-high-level.png" width="100%" alt="平台全貌：外部输入 → 入库转换 → 计算 → 封存导出">
+
+**平台全貌** —— 四个阶段一条主链。悬停节点会高亮相关连线，点节点弹出说明框
+（做什么 / 源码在哪一行 / 读哪张表哪个字段）。
+
+<img src="demos/02-process-flow.png" width="100%" alt="计算流程：三条泳道，十步各谁做">
+
+**计算流程** —— 同一套绘制原语换成**泳道视图**：谁在哪一步做什么，一眼分清。
+
+> ⚠️ 刻意**不放**第三张「取数明细」图：那张图列的是**具体项目的库表清单**
+> （数据模型）⇒ 公开仓库不该带；而它是**数据驱动**的（换个项目就是另一套），
+> 也不适合当通用示例。
+
+---
+
 ## 目录里有什么
 
 ```
@@ -52,6 +71,7 @@ templates/
   nodes.template.json             节点清单的 JSON 形态
   verify_refs.py                  引用校验器（退出码非零即失败）
 test-prompts.json                 触发回归集（prompt / expected / tests）
+demos/                           示例图（真实项目产出）
 ```
 
 ---

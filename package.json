@@ -29,6 +29,7 @@
     "scripts/*.py",
     "templates/*.tsx",
     "templates/*.json",
+    "demos",
     "test-prompts.json"
   ],
   "scripts": {
